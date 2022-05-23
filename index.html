@@ -32,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a class="btn" id="loginButton">
                     <span class="fa fa-sign-in"></span> Login</a>
                 </span>
            </div>            
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div id="reserveform" class="modal fade" role="dialog">
+    <div id="reserveForm" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <!-- Modal content-->
             <div class="modal-content">
@@ -120,16 +120,17 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <div class="row reserve-table " id="smoking">
-                                                        <label for="smokingOption" class="col-12 col-form-label">Section</label>
+                                                    <div class="row reserve-table " id="smoking" style="margin-bottom: 20px;">
+                                                        <label for="smokingOption" class="col-2 col-form-label">Section</label>
                                                         <div class="col-12 col-md-8">
-                                                            <div class="form-check form-check-inline col-4 col-sm-auto">
-                                                                <input class="btn btn-danger d-block" type="button" name="smokingOption" id="smokeno" value="Non-Smoking" />
-                                                            </div>
-                                                            
-                                                            <div class="form-check form-check-inline col-4 col-sm-auto">
-                                                                <input class="btn btn-success d-block" type="button" name="smokingOption" id="smokeyes" value="Smoking" />
-                                                            </div>
+                                                            <div class="btn-group">
+                                                                <div class="form-check form-check-inline" >
+                                                                    <input class="btn btn-success d-block active" type="button" name="smokingOption" id="smokeno" value="Non-Smoking" />
+                                                                    <input class="btn btn-danger d-block" type="button" name="smokingOption" id="smokeyes" value="Smoking" />
+                                                                    
+
+                                                                </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                     
@@ -177,7 +178,7 @@
                         <img src="img/logo.png" class="img-fluid">
                     </div>
                     <div class="col-12 col-sm-3 align-self-center">
-                        <a class="btn btn-warning d-block" data-toggle="modal" data-target="#reserveform">Reserve Table</a>
+                        <a id="reserveButton" class="btn btn-warning d-block">Reserve Table</a>
                     </div>
                 
             </div>
@@ -301,7 +302,8 @@
     </script>
         <script>
             $(document).ready(function(){
-                $("#carouselButton").click(function(){
+              $("#carouselButton").click(function(){
+                    
                 if ($("#carouselButton").children("span").hasClass('fa-pause')) {
                     $("#mycarousel").carousel('pause');
                     $("#carouselButton").children("span").removeClass('fa-pause');
@@ -312,9 +314,26 @@
                     $("#carouselButton").children("span").removeClass('fa-play');
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
-            });
+                
+            })    
+        })
         </script>
-    
+        <script>
+            $(document).ready(function(){
+
+                $("#loginButton").click(function(){
+                    $("#loginModal").modal("toggle");
+                })
+            })
+        </script>
+        <script>
+            $(document).ready(function(){
+
+                $("#reserveButton").click(function(){
+                    $("#reserveForm").modal("toggle");
+                })
+            })
+        </script>
 </body>
 
 </html>
